@@ -2,112 +2,44 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+    <main className="bg-gray-100 sm:bg-red-100 h-screen flex items-center justify-center px-10">
+      {/* px는 x축으로 padding값이 나온다는 이야기다. dark라는 modifer는 컴퓨터 자체로 다크모드를 설정하면 같이 따라간다.
+      sm:은 최소크기~그 이후 큰화면에서 적용된다는 이야기다.*/}
+      <div className="bg-white shadow-lg p-5 rounded-3xl w-full max-w-screen-sm flex flex-col gap-2 md:flex-row *:outline-none ring ring-transparent transition-shadow has-[:invalid]:ring-red-100 has-[:invalid]:ring">
+        {/* has는 해당 컨테이너에서 해당클래스나 상태를 가지고 있는지 검사할 수 있다. */}
+        <input
+          className="w-full bg-gray-200 h-12 rounded-full pl-5 ring ring-transparent focus:ring-green-500 focus:ring-offset-2 transition-shadow placeholder:drop-shadow invalid:focus:ring-red-500 peer" 
+          type="text"
+          required
+          placeholder="Email address..."
         />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        {/* invalid: 는 유효성을 검사하는 modifier로 조건이 맞지않으면 발생한다. 예:required를 했는데 안 적혀있다면 발동함. 
+        modifier는 쌓을 수 있다. invalid:focus:의 경우는 invalid이고 focus이면 발동*/}
+        <span className="text-red-500 font-medium hidden peer-invalid:block">
+          Email is required
+        </span>
+        <button className="bg-black text-white py-2 rounded-full active:scale-90  transition-transform font-medium md:px-10 ">
+          Log in
+        </button>
+        {/* bg-black에 마우스를 올려보면 rgb를 opacity로 나눈 값인 클래스이다. 이처럼 변수를 지정하거나 사용하는 class 타입도 존재한다. 
+        bg-gradient-to-tr from-cyan-500 via-yellow-400 to-purple-400는 그라데이션이다
+        peer를 적어둔 곳이랑 연동해서 'peer-invalid:bg-red-100' 경우에는 peer가 유효하지 않으면 발동*/}
       </div>
     </main>
   );
 }
+
+// ===========group------------------------------------------------
+// {["Nico", "Me", "You", "Yourself"].map((person, index) => (
+//   <div key={index} className="flex items-center group gap-5">
+//     {/* last:border-0 first: 이것은 배열의 첫번째/마지막에 영향을 주는 것이다. */}
+//     <div className="size-10 bg-blue-400 rounded-full" />
+//     <span className="text-lg font-medium group-hover:bg-red-500">{person}</span>
+//     {/* items-center는 아이템들을 수직 방향으로 가운데로 정렬하고, justify-center는 아이템들을 수평 방향으로 가운데로 정렬합니다 !group-hover:bg-red-500!---> 이건 group으로 묶인 애들 중 하나를 쓸 수 있는 것이다. group-focus-within은 */}
+//     <div className="size-6 bg-red-500 text-white flex items-center justify-center rounded-full relative">
+//       <span className="z-10">{index}</span>
+//       <div className="size-6 bg-red-500 rounded-full absolute animate-ping" />
+//     </div>
+//     {/* 원 두개를 놓고 해야 제대로된 animate-ping이 나온다. modifier중에 비어있을 때의 경우인 empty modifier도 있다.*/}
+//   </div>
+// ))}

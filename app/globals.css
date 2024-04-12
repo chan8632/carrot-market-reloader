@@ -1,33 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* 여기에 생성된 css를 둔다 이것을 directive라고 한다. */
+/* utilites는 tailwind라는 컴파일러가 생성한 모든 code를 저장하는 곳이다.
+base는 tailwind의 기본적인 css를 저장한다. 그래서 이걸 없앤다고 해서 막 망가지진 않지만 없으면 input이 완전 기초적인 input 형태로 나타난다던지 한다. */
+/* @apply라고 tailwindcss의 classname를 css로 변환시켜주는 역할을 한다. 같은 역할로 react component를 이용해 분류하는 걸 추천한다.↓↓↓↓예시 btn라는 컴포넌트를 생성함*/
+.btn {
+    @apply w-full bg-black text-white
 }
+/* layer directive는 layer(base, components, utilites...)를 확장시켜준다.  
+component layer는 plugin을 확장시킬 때 사용한다. ↓↓↓↓↓예시는 base layer를 확장하는 것이다 */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@layer base {
+    a {
+        @apply text-blue-500;
+    }
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/*  */
+@layer utilities{
+    .text-bigger-hello {
+        /* font-size: 444px; --> 이렇게 class name확장은 config.ts에서도 충분하다*/
+        @apply text-3xl font-semibold;
+    }
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+@layer components{
+    .btn{
+        @apply w-full bg-black h-10;
+    }
 }
+/* 많은 클래스를 감쌀때 component를 확장한다. */
